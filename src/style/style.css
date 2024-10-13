@@ -1,0 +1,381 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+p{
+  text-align: justify
+}
+
+/*
+    AppBar
+  */
+
+.app-bar {
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__brand h1 {
+    color: #19376D;
+    text-transform: uppercase;
+    font-size: 22px;
+    user-select: none;
+}
+
+.app-bar .app-bar__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: 0.5s  ease-in-out;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+    -webkit-transition: 0.5s  ease-in-out;
+    -moz-transition: 0.5s  ease-in-out;
+    -ms-transition: 0.5s  ease-in-out;
+    -o-transition: 0.5s  ease-in-out;
+}
+
+.app-bar .app-bar__navigation.open {
+    left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.app-bar .app-bar__navigation ul li a:hover {
+    text-decoration: none;
+    background-color:#19376D;
+    color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+}
+/*
+    Main Content
+  */
+
+main {
+    padding: 32px;
+    flex: 1;
+}
+
+.content {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.content .content__heading {
+    font-weight: normal;
+}
+#restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom dengan lebar yang sama */
+    gap: 20px; /* Spasi antara item */
+    margin-top: 20px;
+  }
+  
+  .restaurant-item {
+    background-color: #19376D;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.restaurant-item a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .restaurant-item__thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .restaurant-item__content {
+    padding: 16px;
+  }
+  
+  .restaurant-item__content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  .restaurant-item__content p {
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  
+  .restaurant-item__content p strong {
+    color: #F3C623;
+  }
+  
+  /* Details */
+  #restaurant-detail h3{
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+.restaurant-detail {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header section */
+.restaurant-detail__header {
+  width: 70%; /* Perbaikan: Kurangi width dari 400% menjadi 40% agar proporsional */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px; /* Gunakan margin-right daripada margin-bottom karena gambar dan konten ada di samping */
+}
+
+.restaurant-detail__header__image {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.restaurant-detail__header__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Rating */
+.restaurant-detail__header__rating {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px; /* Tambah sedikit jarak antara gambar dan rating */
+}
+.restaurant-detail__header__rating strong{
+  color: #F3C623;
+}
+/* Content section */
+.restaurant-detail__content {
+  flex: 1; /* Agar bagian konten memenuhi sisa ruang yang ada */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan shadow agar terlihat menarik */
+}
+.restaurant-detail__content h3{
+  font-size: 1.5rem;
+}
+.restaurant-detail__content p {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+.restaurant-detail__content__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.restaurant-detail__content__menu {
+  margin-bottom: 20px;
+}
+
+.restaurant-detail__content__menu ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.restaurant-detail__content__menu li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px; /* Tambahkan font-size untuk konsistensi */
+}
+.restaurant-detail__content__menu ul li:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+.restaurant-detail__content__menu ul li:nth-child(even) {
+  background-color: #e0e0e0;
+}
+/* Review section */
+.restaurant-detail__content__review {
+  margin-bottom: 20px;
+}
+.restaurant-detail__content__review__item:nth-child(odd) {
+  background-color: #fdfdfd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.restaurant-detail__content__review__item:nth-child(even) {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+.restaurant-detail__content__review__item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.restaurant-detail__content__review__item h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.restaurant-detail__content__review__item p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5; /* Perbaikan: Tambah line-height untuk meningkatkan keterbacaan */
+}
+
+/* add-review*/
+.add-review {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-review h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-review p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.add-review form {
+  margin-top: 20px;
+}
+
+.add-review form label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-review form input,
+.add-review form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-review form button {
+  padding: 10px 20px;
+  background-color:#19376D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.add-review form button:hover {
+  background-color: #555;
+}
+
+/* Footer section */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:#19376D;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: auto;
+}
+footer p a{
+  text-decoration: none;
+  color: white
+}
