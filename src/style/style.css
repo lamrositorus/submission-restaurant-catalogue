@@ -227,6 +227,7 @@ main {
 }
 .restaurant-detail__content h3{
   font-size: 1.5rem;
+  margin-left: 0.5rem;
 }
 .restaurant-detail__content p {
   background-color: #f5f5f5;
@@ -238,9 +239,10 @@ main {
   -o-border-radius: 0.5rem;
 }
 .restaurant-detail__content__title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-left: 0.5rem;
 }
 
 .restaurant-detail__content__menu {
@@ -358,7 +360,7 @@ main {
 }
 
 .add-review form button:hover {
-  background-color: #555;
+  background-color: #2c63c7dd;
 }
 
 /* Footer section */

@@ -51,7 +51,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
                   `).join('')}
               </div>
               <div class="add-review"> 
-                  <h3>Add Review</h3>
+                  <h3 id="add-review-title">Add Review</h3>
                   <form id="review-form">
                       <div class="form-group">
                           <label for="name">Name</label>
