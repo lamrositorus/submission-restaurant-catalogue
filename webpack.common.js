@@ -3,6 +3,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 const __dirname = path.resolve();
 export default {
   entry: {
@@ -14,19 +15,16 @@ export default {
     clean: true,
   },
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-        ],
+    rules: [{
+      test: /\.css$/,
+      use: [{
+        loader: 'style-loader',
       },
-    ],
+      {
+        loader: 'css-loader',
+      },
+      ],
+    },],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,12 +32,29 @@ export default {
       template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
     new CopyWebpackPlugin({
-      patterns: [
+      patterns: [{
+        from: path.resolve(__dirname, 'src/public/'),
+        to: path.resolve(__dirname, 'dist/'),
+      },],
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching:[
         {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
+          urlPattern: new RegExp('https://restaurant-api.dicoding.dev'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'restaurant-api',
+          },
         },
-      ],
+        {
+          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/images'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'images',
+          },
+        }
+      ]
     }),
   ],
 };

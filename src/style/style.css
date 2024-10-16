@@ -90,6 +90,8 @@ p{
     background-color:#19376D;
     color: white;
     border-radius: 5px;
+    font-weight: 900;
+    font-size: 1.1rem;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -112,6 +114,20 @@ main {
 .content {
     margin: 0 auto;
     min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+.content input{
+  width: 40%;
+  padding: 0.7rem;
+  border-radius: 15px ;
+  border: 0.1rem solid #19376D;
+  -webkit-border-radius: 15px ;
+  -moz-border-radius: 15px ;
+  -ms-border-radius: 15px ;
+  -o-border-radius: 15px ;
 }
 
 .content .content__heading {
@@ -134,7 +150,10 @@ main {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-
+p.restaurant-item_P{
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
 .restaurant-item a {
     text-decoration: none;
     color: white;
@@ -361,6 +380,108 @@ main {
 
 .add-review form button:hover {
   background-color: #2c63c7dd;
+}
+/* restaurant likes */
+#restaurant-likes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom dengan lebar yang sama */
+  gap: 20px; /* Spasi antara item */
+  margin-top: 20px;
+
+}
+.restaurant-likes {
+  background-color: #19376D;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+p.restaurant-likes_P{
+font-size: 1.2rem;
+font-weight: bolder;
+}
+.restaurant-likes a {
+  text-decoration: none;
+  color: white;
+}
+
+.restaurant-likes__thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-likes__content {
+  padding: 16px;
+}
+
+.restaurant-likes__content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.restaurant-likes__content p {
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.restaurant-likes__content p strong {
+  color: #F3C623;
+}
+/* like */
+.like{
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+/* loader */
+/* HTML: <div class="loader"></div> */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 50%;
+  background:    linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,    linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 2s infinite steps(12);
+  -webkit-animation: l23 2s infinite steps(12);
+}
+.loader::before,
+.loader::after {
+   content: "";
+   grid-area: 1/1;
+   border-radius: 50%;
+   background: inherit;
+   opacity: 0.915;
+   transform: rotate(30deg);
+}
+.loader::after {
+   opacity: 0.83;
+   transform: rotate(60deg);
+}
+@keyframes l23 {
+  100% {transform: rotate(1turn)}
 }
 
 /* Footer section */

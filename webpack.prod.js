@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { merge } from 'webpack-merge';
 import common from './webpack.common.js';
 

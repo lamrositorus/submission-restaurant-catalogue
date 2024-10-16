@@ -6,8 +6,8 @@ const createRestaurantItemTemplate = (restaurant) => `
       <div class="restaurant-item__content">
           <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3> <!-- Pastikan id restoran diteruskan di sini -->
           <p>${restaurant.description}</p>
-          <p>Kota: ${restaurant.city}</p>
-          <p>Rating: <strong>${restaurant.rating}</strong></p>
+          <p class="restaurant-item_P">Kota: ${restaurant.city}</p>
+          <p class="restaurant-item_P">Rating: <strong>${restaurant.rating}</strong></p>
       </div>
   </div>
 `;
@@ -65,8 +65,37 @@ const createRestaurantDetailTemplate = (restaurant) => `
               </div>
               
     `;
+const createLikeTemplate = (restaurant)=>`
+<div class="restaurant-likes">
+      <img class="restaurant-likes__thumbnail" src="https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}" alt="${restaurant.name}">
+      <div class="restaurant-likes__content">
+          <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3> <!-- Pastikan id restoran diteruskan di sini -->
+          <p>${restaurant.description}</p>
+          <p class="restaurant-likes_P">Kota: ${restaurant.city}</p>
+          <p class="restaurant-likes_P">Rating: <strong>${restaurant.rating}</strong></p>
+      </div>
+  </div>
+`;
+const createLikeButtonTemplate = () => `
+    <button aria-label="like this movie" id="likeButton" class="like">
+       <i class="fa fa-heart-o" aria-hidden="true"></i>
+    </button>
+  `;
+
+const createLikedButtonTemplate = () => `
+    <button aria-label="unlike this movie" id="likeButton" class="like">
+      <i class="fa fa-heart" aria-hidden="true"></i>
+    </button>
+  `;
+const createLoaderTemplate = () => `
+<div class="loader"></div>`;
+
 
 export {
   createRestaurantItemTemplate,
-  createRestaurantDetailTemplate
+  createRestaurantDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createLoaderTemplate,
+  createLikeTemplate
 };

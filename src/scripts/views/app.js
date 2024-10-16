@@ -1,8 +1,15 @@
 import DrawerInitiator from '../utils/drawer-initiator.js';
 import UrlParser from '../routes/url-parser.js';
 import routes from '../routes/routes.js';
+import {
+  createLoaderTemplate
+} from './templates/template-creator.js';
 class App {
-  constructor({ button, content, drawer }) {
+  constructor({
+    button,
+    content,
+    drawer
+  }) {
     this._button = button;
     this._content = content;
     this._drawer = drawer;
@@ -16,6 +23,7 @@ class App {
       content: this._content,
       drawer: this._drawer,
     });
+    this._content.innerHTML = createLoaderTemplate();
   }
 
   async renderPage() {
@@ -23,6 +31,12 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
+
+    const loader = document.querySelector('#loader');
+    if (loader) {
+      loader.remove();
+    }
+
   }
 
 }

@@ -79,10 +79,24 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
+    .app-bar .app-bar__brand h1 {
+        font-size: 1.3em;
+        align-items: center;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .content input{
+        width: 100%;
+    }
     #restaurant-list {
         grid-template-columns: repeat(1, 1fr);
     }
+    #restaurant-likes{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }
 
 @media screen and (max-width: 600px) {
