@@ -11,8 +11,7 @@
     "test": "jest ",
     "e2e": "codeceptjs run --config codecept.conf.cjs",
     "build": " node list.cjs && webpack --config webpack.prod.js && http-server dist --port 9000 && node run-images.cjs",
-    "dev": "webpack serve --config webpack.dev.js",
-    "image": "node sharp.cjs"
+    "dev": "webpack serve --config webpack.dev.js"
   },
   "keywords": [],
   "author": "<@lamro> (https://github.com/lamro)",
@@ -25,6 +24,7 @@
     "babel-loader": "^9.2.1",
     "clean-webpack-plugin": "^4.0.0",
     "codeceptjs": "^3.6.7",
+    "compression-webpack-plugin": "^11.1.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
