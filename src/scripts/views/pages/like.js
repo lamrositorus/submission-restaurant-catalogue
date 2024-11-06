@@ -17,9 +17,21 @@ const Like = {
   async afterRender() {
     const likes = await FavoritRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant-likes');
-    likes.forEach((like) => {
-      restaurantContainer.innerHTML += createLikeTemplate(like);
-    });
+
+    // Cek apakah ada restoran yang disukai
+    if (likes.length > 0) {
+      likes.forEach((like) => {
+        restaurantContainer.innerHTML += createLikeTemplate(like);
+      });
+    } else {
+      // Jika tidak ada restoran yang disukai, tampilkan pesan
+      restaurantContainer.innerHTML = `
+            <div class="restaurant-item__not__found">
+                Tidak ada restaurant untuk ditampilkankan
+            </div>
+        `;
+    }
+
     const searchElement = document.querySelector('#search-restaurant');
     searchElement.addEventListener('keyup', (e) => {
       const keyword = e.target.value;
@@ -27,9 +39,20 @@ const Like = {
         return like.name.toLowerCase().includes(keyword.toLowerCase());
       });
       restaurantContainer.innerHTML = '';
-      filteredLikes.forEach((like) => {
-        restaurantContainer.innerHTML += createLikeTemplate(like);
-      });
+
+      // Cek apakah ada hasil pencarian
+      if (filteredLikes.length > 0) {
+        filteredLikes.forEach((like) => {
+          restaurantContainer.innerHTML += createLikeTemplate(like);
+        });
+      } else {
+        // Jika tidak ada hasil pencarian, tampilkan pesan
+        restaurantContainer.innerHTML = `
+                <div class="restaurant-item__not__found">
+                    Tidak ada restaurant untuk ditampilkankan
+                </div>
+            `;
+      }
     });
   }
 };

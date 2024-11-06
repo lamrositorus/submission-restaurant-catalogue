@@ -1,11 +1,12 @@
 /* eslint-disable linebreak-style */
 import FavoritRestaurantIdb from '../data/favorit-restaurant-db.js';
-import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template-creator.js';
+import { createLikeRestaurantButtonTemplate, createLikedRestaurantButtonTemplate } from '../views/templates/template-creator.js';
 
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
     this._restaurant = restaurant;
+    // console.log('Initializing with restaurant:', restaurant);
 
     await this._renderButton();
   },
@@ -13,35 +14,42 @@ const LikeButtonInitiator = {
   async _renderButton() {
     const { id } = this._restaurant;
 
-    if (await this._isRestaurantExist(id)) {
+    const isRestaurantExist = await FavoritRestaurantIdb.getRestaurant(id);
+
+    if (isRestaurantExist) {
       this._renderLiked();
     } else {
       this._renderLike();
     }
   },
 
-  async _isRestaurantExist(id) {
-    const restaurant = await FavoritRestaurantIdb.getRestaurant(id);
-    return !!restaurant;
-  },
-
-  _renderLike() {
-    this._likeButtonContainer.innerHTML = createLikeButtonTemplate();
+  async _renderLike() {
+    this._likeButtonContainer.innerHTML = createLikeRestaurantButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
+      if (!this._restaurant.id) {
+        console.log('restaurant has no id');
+        return;
+      }
       await FavoritRestaurantIdb.putRestaurant(this._restaurant);
-      this._renderButton();
+      const allRestaurant = await FavoritRestaurantIdb.getAllRestaurants();
+      console.log('current restaurant in database', allRestaurant);
+      this._renderLiked();
     });
   },
 
-  _renderLiked() {
-    this._likeButtonContainer.innerHTML = createLikedButtonTemplate();
+  async _renderLiked() {
+    this._likeButtonContainer.innerHTML = createLikedRestaurantButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
+      if (!this._restaurant.id) {
+        console.log('restaurant has no id');
+        return;
+      }
       await FavoritRestaurantIdb.deleteRestaurant(this._restaurant.id);
-      this._renderButton();
+      this._renderLike();
     });
   },
 };

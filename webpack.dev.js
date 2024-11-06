@@ -1,6 +1,7 @@
+/* eslint-disable linebreak-style */
 import path from 'path';
 import { merge } from 'webpack-merge';
-import common from './webpack.common.js';
+import common from './webpack.common.cjs';
 
 const __dirname = path.resolve();
 export default merge(common, {

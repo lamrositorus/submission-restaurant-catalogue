@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
-import Menu from '../views/pages/menu.js';
+import Dashboard from '../views/pages/dashboard.js';
 import Like from '../views/pages/like.js';
 import Detail from '../views/pages/detail.js';
 
 const routes = {
-  '/': Menu,
-  '/menu': Menu,
+  '/': Dashboard,
+  '/dashboard': Dashboard,
   '/like': Like,
   '/detail/:id': Detail
 };
