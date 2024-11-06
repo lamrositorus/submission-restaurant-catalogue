@@ -7,6 +7,7 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // Tambahkan ini
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -120,6 +121,14 @@ module.exports = {
         blocking: false,
         parallel: false,
       },
+    }),
+    new CompressionPlugin({
+      filename: '[path][base].gz',     // Nama file output, [path] dan [base] mempertahankan struktur asli
+      algorithm: 'gzip',               // Algoritma kompresi (gzip atau brotliCompress)
+      test: /\.(js|css|html|svg)$/,    // Tentukan tipe file yang ingin dikompresi
+      threshold: 8192,                 // Minimum ukuran file yang dikompresi (8KB)
+      minRatio: 0.8,                   // Rasio minimum untuk kompresi (dengan 0.8, file dikompresi jika lebih kecil 80% dari ukuran asli)
+      deleteOriginalAssets: false      // Jika `true`, menghapus file asli setelah kompresi (opsional)
     }),
   ],
 };
