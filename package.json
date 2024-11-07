@@ -5,16 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prebuild-images": "node list.cjs",
-    "build-webpack": "webpack --config webpack.prod.js",
-    "postbuild-images": "node run-images.cjs",
-    "build": "npm run prebuild-images && npm run build-webpack && npm run postbuild-images",
     "build-serve": "npm run build && npm run serve",
-    "serve": "http-server dist --port 9000",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
-    "test": "jest",
+    "test": "jest ",
     "e2e": "codeceptjs run --config codecept.conf.cjs",
+    "build": " node list.cjs && webpack --config webpack.prod.js && http-server dist --port 9000 && node run-images.cjs",
     "dev": "webpack serve --config webpack.dev.js"
   },
   "keywords": [],
