@@ -96,6 +96,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 `;
 
 const createLikeTemplate = (restaurant) => `
+<div class="card">
 <div class="restaurant-likes">
     <picture>
         <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
@@ -109,6 +110,7 @@ const createLikeTemplate = (restaurant) => `
         <p class="restaurant-likes_P">Kota: ${restaurant.city}</p>
         <p class="restaurant-likes_P">Rating: <strong>${restaurant.rating}</strong></p>
     </div>
+</div>
 </div>
 `;
 

@@ -13,11 +13,11 @@ const Dashboard = {
       </div>
       <div id="hero-img">
         <picture>
-          <source type="image/webp" data-srcset="./images/processed/hero-image_2-webp-small.webp" media="(max-width: 600px)">
-          <source type="image/jpeg" data-srcset="./images/processed/hero-image_2-small.jpg" media="(max-width: 600px)">
-          <source type="image/webp" data-srcset="./images/processed/hero-image_2-webp-large.webp" media="(min-width: 601px)">
-          <source type="image/jpeg" data-srcset="./images/processed/hero-image_2-small.jpg" media="(min-width: 601px)">
-          <img class="lazyload" data-src="./images/processed/hero-image_2-jpg-small.jpg" alt="Hero Image">
+          <source type="image/webp" srcset="./images/processed/hero-image_2-webp-small.webp" media="(max-width: 600px)">
+          <source type="image/jpeg" srcset="./images/processed/hero-image_2-small.jpg" media="(max-width: 600px)">
+          <source type="image/webp" srcset="./images/processed/hero-image_2-webp-large.webp" media="(min-width: 601px)">
+          <source type="image/jpeg" srcset="./images/processed/hero-image_2-small.jpg" media="(min-width: 601px)">
+          <img src="./images/processed/hero-image_2-jpg-small.jpg" alt="Hero Image">
         </picture>        
       </div>
       <section id="restaurant-list" tabindex="-1" aria-label="Restaurant List"></section>
