@@ -11,7 +11,7 @@
     "test": "jest ",
     "e2e": "codeceptjs run --config codecept.conf.cjs",
     "build-images": "node run-images.cjs",
-    "build": "npm run build-images && webpack --config webpack.prod.js",
+    "build": "npm run build-images && webpack --config webpack.prod.cjs",
     "deploy": "npm run build && http-server dist --port 9000",    
     "dev": "webpack serve --config webpack.dev.js"
   },
