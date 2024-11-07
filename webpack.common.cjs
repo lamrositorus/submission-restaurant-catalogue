@@ -2,7 +2,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // Tambahkan ini
@@ -76,27 +75,6 @@ module.exports = {
         {
           from: path.resolve('src/public/'),
           to: path.resolve('dist/'),
-        },
-      ],
-    }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('https://restaurant-api.dicoding.dev'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-api',
-          },
-        },
-        {
-          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/images'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'images',
-          },
         },
       ],
     }),
