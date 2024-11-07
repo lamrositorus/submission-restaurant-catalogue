@@ -1,4 +1,6 @@
 /* eslint-disable no-undef *//* eslint-disable linebreak-style */
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -43,7 +45,13 @@ module.exports = {
     minimizer: [
       '...',
       new CssMinimizerPlugin(),
-      new TesertPlugin(),
+      new TesertPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
     ],
     splitChunks: {
       chunks: 'all',
@@ -109,6 +117,9 @@ module.exports = {
       threshold: 8192,                 // Minimum ukuran file yang dikompresi (8KB)
       minRatio: 0.8,                   // Rasio minimum untuk kompresi (dengan 0.8, file dikompresi jika lebih kecil 80% dari ukuran asli)
       deleteOriginalAssets: false      // Jika `true`, menghapus file asli setelah kompresi (opsional)
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`, { nodir: true }),
     }),
   ],
 };
