@@ -1,0 +1,12 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_ENV = "production"
+
+[[plugins]]
+package = "@netlify/plugin-functions-core"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
