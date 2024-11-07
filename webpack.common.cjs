@@ -1,6 +1,4 @@
 /* eslint-disable no-undef *//* eslint-disable linebreak-style */
-const PurgeCSSPlugin = require('purgecss-webpack-plugin');
-const glob = require('glob');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,6 +8,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // Tambahkan
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TesertPlugin = require('terser-webpack-plugin');
+const glob = require('glob-all');
+const PurgeCSSPlugin = require('purgecss-webpack-plugin').PurgeCSSPlugin;
 module.exports = {
   entry: {
     app: path.resolve('src/scripts/index.js'),
@@ -123,3 +123,4 @@ module.exports = {
     }),
   ],
 };
+
