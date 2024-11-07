@@ -6,10 +6,10 @@ const createRestaurantItemTemplate = (restaurant) => `
 <div class="card">
     <div class="restaurant-item">
         <picture>
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(min-width: 601px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(min-width: 601px)">
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 600px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 600px)">
+            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
+            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-l.jpg" media="(min-width: 426px)">
+            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
+            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
             <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-small.jpg" alt="${restaurant.name}" data-parent-fit="cover">
         </picture>
         <div class="restaurant-item__content">
@@ -25,10 +25,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
 <div class="restaurant-detail">
     <div class="restaurant-detail__header">
         <picture>
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(min-width: 601px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(min-width: 601px)">
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 600px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 600px)">
+            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
+            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-l.jpg" media="(min-width: 426px)">
+            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
+            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
             <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-small.jpg" alt="${restaurant.name}" data-parent-fit="cover">
         </picture>
         <div class="restaurant-detail__header__rating">
@@ -96,29 +96,20 @@ const createRestaurantDetailTemplate = (restaurant) => `
 `;
 
 const createLikeTemplate = (restaurant) => `
-
-    <div class="card">
-        <div class="restaurant-likes">
-            <picture>
-                <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp"
-                    media="(min-width: 601px)">
-                <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg"
-                    media="(min-width: 601px)">
-                <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp"
-                    media="(max-width: 600px)">
-                <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg"
-                    media="(max-width: 600px)">
-                <img class="restaurant-item__thumbnail lazyload"
-                    data-src="./images/${restaurant.pictureId}-jpg-small.jpg" alt="${restaurant.name}"
-                    data-parent-fit="cover">
-            </picture>
-            <div class="restaurant-likes__content">
-                <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3>
-                <p class="restaurant-likes_P">Kota: ${restaurant.city}</p>
-                <p class="restaurant-likes_P">Rating: <strong>${restaurant.rating}</strong></p>
-            </div>
-        </div>
+<div class="restaurant-likes">
+    <picture>
+        <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
+        <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-large.jpg" media="(min-width: 426px)">
+        <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
+        <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
+        <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-large.jpg" alt="${restaurant.name}" data-parent-fit="cover">
+    </picture>
+    <div class="restaurant-likes__content">
+        <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3>
+        <p class="restaurant-likes_P">Kota: ${restaurant.city}</p>
+        <p class="restaurant-likes_P">Rating: <strong>${restaurant.rating}</strong></p>
     </div>
+</div>
 `;
 
 const createLikeRestaurantButtonTemplate = () => `

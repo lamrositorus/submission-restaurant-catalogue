@@ -2,13 +2,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // Tambahkan ini
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const CompressionPlugin = require('compression-webpack-plugin');
-
+const TesertPlugin = require('terser-webpack-plugin');
 module.exports = {
   entry: {
     app: path.resolve('src/scripts/index.js'),
@@ -39,10 +38,12 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true, // Pastikan ini diaktifkan untuk mengizinkan minifikasi
+    usedExports: true,
+    minimize: true,
     minimizer: [
-      '...', // Pertahankan ini untuk menggunakan minimizer default (TerserPlugin)
-      new CssMinimizerPlugin(), // Tambahkan CssMinimizerPlugin di sini
+      '...',
+      new CssMinimizerPlugin(),
+      new TesertPlugin(),
     ],
     splitChunks: {
       chunks: 'all',
@@ -76,27 +77,6 @@ module.exports = {
         {
           from: path.resolve('src/public/'),
           to: path.resolve('dist/'),
-        },
-      ],
-    }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('https://restaurant-api.dicoding.dev'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-api',
-          },
-        },
-        {
-          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/images'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'images',
-          },
         },
       ],
     }),
