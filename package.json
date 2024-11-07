@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix ./src",
     "test": "jest ",
     "e2e": "codeceptjs run --config codecept.conf.cjs",
-    "build": " node run-images.cjs && webpack --config webpack.prod.js && http-server dist --port 9000 ",
+    "build-images": "node run-images.cjs",
+    "build": "npm run build-images && webpack --config webpack.prod.js",
+    "deploy": "npm run build && http-server dist --port 9000",    
     "dev": "webpack serve --config webpack.dev.js"
   },
   "keywords": [],
