@@ -3,7 +3,7 @@
 Feature('adding review');
 
 Before(({ I }) => {
-  I.amOnPage('/#/dashboard');
+  I.amOnPage('/#/home');
 });
 
 Scenario('adding review', async ({ I }) => {
