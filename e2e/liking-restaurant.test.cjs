@@ -3,7 +3,7 @@ const assert  = require('assert');
 Feature('Liking Restaurant');
 
 Before(({ I }) => {
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/favorite');
 });
 
 Scenario('showing empty liked restaurant', ({ I }) => {
@@ -25,7 +25,7 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
 
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/favorite');
   I.seeElement('#restaurant-likes');
 
   const likedRestaurantName = await I.grabTextFrom('.restaurant-likes h3');
@@ -49,7 +49,7 @@ Scenario('searching restaurant', async ({ I }) => {
     I.amOnPage('/'); // Kembali ke halaman utama
   }
 
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/favorite');
   I.seeElement('#search-restaurant');
 
   const visibleLikedRestaurants = await I.grabNumberOfVisibleElements('.restaurant-likes');
