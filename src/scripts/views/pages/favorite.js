@@ -3,7 +3,7 @@ import FavoritRestaurantIdb from '../../data/favorit-restaurant-db.js';
 import {
   createLikeTemplate
 } from '../templates/template-creator.js';
-const Like = {
+const Favorite = {
   async render() {
     return `
             <div class="content">
@@ -15,12 +15,12 @@ const Like = {
   },
 
   async afterRender() {
-    const likes = await FavoritRestaurantIdb.getAllRestaurants();
+    const favorite = await FavoritRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant-likes');
 
     // Cek apakah ada restoran yang disukai
-    if (likes.length > 0) {
-      likes.forEach((like) => {
+    if (favorite.length > 0) {
+      favorite.forEach((like) => {
         restaurantContainer.innerHTML += createLikeTemplate(like);
       });
     } else {
@@ -35,7 +35,7 @@ const Like = {
     const searchElement = document.querySelector('#search-restaurant');
     searchElement.addEventListener('keyup', (e) => {
       const keyword = e.target.value;
-      const filteredLikes = likes.filter((like) => {
+      const filteredLikes = favorite.filter((like) => {
         return like.name.toLowerCase().includes(keyword.toLowerCase());
       });
       restaurantContainer.innerHTML = '';
@@ -57,4 +57,4 @@ const Like = {
   }
 };
 
-export default Like;
+export default Favorite;

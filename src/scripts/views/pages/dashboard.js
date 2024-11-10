@@ -4,7 +4,7 @@ import { createRestaurantItemTemplate } from '../templates/template-creator.js';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit.js';
 
-const Dashboard = {
+const Home = {
   async render() {
     return `
       <div class="content">
@@ -70,5 +70,5 @@ const Dashboard = {
   }
 };
 
-export default Dashboard;
+export default Home;
 
