@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
-import Dashboard from '../views/pages/dashboard.js';
+import Home from '../views/pages/dashboard.js';
 import Favorite from '../views/pages/favorite.js';
 import Detail from '../views/pages/detail.js';
 
 const routes = {
-  '/': Dashboard,
-  '/dashboard': Dashboard,
+  '/': Home,
+  '/home': Home,
   '/favorite': Favorite,
   '/detail/:id': Detail
 };

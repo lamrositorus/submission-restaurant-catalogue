@@ -3,7 +3,7 @@
 Feature('Search Restaurant');
 
 Scenario('Mencari restoran yang ada di katalog', async ({ I }) => {
-  I.amOnPage('/#/dashboard');
+  I.amOnPage('/#/home');
 
   I.seeElement('#search-restaurant');
 
@@ -15,7 +15,7 @@ Scenario('Mencari restoran yang ada di katalog', async ({ I }) => {
 });
 
 Scenario('Mencari restoran yang tidak ada di katalog', async ({ I }) => {
-  I.amOnPage('/#/dashboard');
+  I.amOnPage('/#/home');
   I.seeElement('#search-restaurant');
 
   const keyword = 'Restoran';
