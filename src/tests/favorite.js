@@ -101,14 +101,14 @@ describe('Unliking A Restaurant', () => {
 
   });
 
-  it('should be able to remove liked movie from the list', async () => {
+  it('should be able to remove liked restaurant from the list', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
     expect(await FavoritRestaurantIdb.getAllRestaurants()).toEqual([]);
   });
 
-  it('should not throw error when user click unlike widget if the unliked movie is not in the list', async () => {
+  it('should not throw error when user click unlike widget if the unliked restaurant is not in the list', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     await FavoritRestaurantIdb.deleteRestaurant(1);
