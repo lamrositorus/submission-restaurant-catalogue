@@ -289,18 +289,16 @@ p.restaurant-likes {
 .restaurant-likes__content {
     padding: 16px
 }
-.restaurant-item__content h3,
-.restaurant-likes__content h3 {
-    width: 100%;
-    height: 44px;
-    margin-bottom: .5rem
+
+.restaurant-item__content h3 a, .restaurant-likes__content h3 a {
+    color: #fff;
+    font-size: 1rem; /* Ukuran font diubah menjadi 1rem */
+    display: inline-block; /* Pastikan elemen dapat menerima width dan height */
+    width: 100%; /* Set lebar elemen */
+    height: 44px; /* Set tinggi elemen */
+    line-height: 44px; /* Mengatur line-height agar teks terpusat secara vertikal */
 }
-.restaurant-item__content h3 a .restaurant-likes__content h3 a {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #fff
-}
+
 .restaurant-item__content p,
 .restaurant-likes__content p {
     font-size: 1.2rem;
@@ -608,23 +606,16 @@ svg {
     }
 }
 footer {
+    width: auto;
+    display: inline-block;
+}
+footer p, footer a {
+    font-size: 1rem;
+    height: 44px;
+    display: inline-block;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-    margin-top: auto
-}
-footer p a {
     text-decoration: none;
-    color: #fff;
-    width: 3rem;
-    height: 3rem;
-    background-color: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center
+    color: #fff
 }
