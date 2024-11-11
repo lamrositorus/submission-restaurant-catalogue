@@ -6,11 +6,9 @@ const createRestaurantItemTemplate = (restaurant) => `
 <div class="card">
     <div class="restaurant-item">
         <picture>
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-l.jpg" media="(min-width: 426px)">
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
-            <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-small.jpg" alt="${restaurant.name}" data-parent-fit="cover">
+            <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/large/${restaurant.pictureId}" media="(min-width: 426px)">
+            <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}" media="(max-width: 425px)">
+        <img class="restaurant-item__thumbnail lazyload" data-src="https://restaurant-api.dicoding.dev/medium/${restaurant.pictureId}" alt="${restaurant.name}" data-parent-fit="cover">
         </picture>
         <div class="restaurant-item__content">
             <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3> <!-- Pastikan id restoran diteruskan di sini -->
@@ -25,11 +23,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
 <div class="restaurant-detail">
     <div class="restaurant-detail__header">
         <picture>
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-l.jpg" media="(min-width: 426px)">
-            <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
-            <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
-            <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-small.jpg" alt="${restaurant.name}" data-parent-fit="cover">
+            <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/large/${restaurant.pictureId}" media="(min-width: 426px)">
+            <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}" media="(max-width: 425px)">
+        <img class="restaurant-item__thumbnail lazyload" data-src="https://restaurant-api.dicoding.dev/medium/${restaurant.pictureId}" alt="${restaurant.name}" data-parent-fit="cover">
         </picture>
         <div class="restaurant-detail__header__rating">
             <p>Rating: <strong>${restaurant.rating}</strong></p>
@@ -99,11 +95,11 @@ const createLikeTemplate = (restaurant) => `
 <div class="card">
 <div class="restaurant-likes">
     <picture>
-        <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-large.webp" media="(min-width: 426px)">
-        <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-large.jpg" media="(min-width: 426px)">
-        <source type="image/webp" data-srcset="./images/processed/${restaurant.pictureId}-webp-small.webp" media="(max-width: 425px)">
-        <source type="image/jpeg" data-srcset="./images/${restaurant.pictureId}-small.jpg" media="(max-width: 425px)">
-        <img class="restaurant-item__thumbnail lazyload" data-src="./images/${restaurant.pictureId}-jpg-large.jpg" alt="${restaurant.name}" data-parent-fit="cover">
+        <source type="image/webp" data-srcset="https://restaurant-api.dicoding.dev/images/large/${restaurant.pictureId}" media="(min-width: 426px)">
+        <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/large/${restaurant.pictureId}" media="(min-width: 426px)">
+        <source type="image/webp" data-srcset="https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}" media="(max-width: 425px)">
+        <source type="image/jpeg" data-srcset="https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}" media="(max-width: 425px)">
+        <img class="restaurant-item__thumbnail lazyload" data-src="https://restaurant-api.dicoding.dev/medium/${restaurant.pictureId}" alt="${restaurant.name}" data-parent-fit="cover">
     </picture>
     <div class="restaurant-likes__content">
         <h3><a href="#/detail/${restaurant.id}">${restaurant.name}</a></h3>

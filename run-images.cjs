@@ -7,8 +7,7 @@ const axios = require('axios');
 const sourceImagesDir = path.resolve(__dirname, 'src/public/images');
 const webpImagesDir = path.resolve(__dirname, 'dist/images');
 const destinationDir = path.resolve(__dirname, 'dist/images/processed');
-const restaurantListUrl = 'https://restaurant-api.dicoding.dev/list';
-const imageUrl = 'https://restaurant-api.dicoding.dev/images/medium/';
+
 
 // Pastikan folder tujuan ada
 if (!fs.existsSync(destinationDir)) {
@@ -40,41 +39,10 @@ const processLocalImages = (dir, prefix) => {
   });
 };
 
-// Fungsi untuk mengunduh dan mengoptimasi gambar dari API
-async function optimizeImage(pictureId) {
-  try {
-    const response = await axios.get(`${imageUrl}${pictureId}`, { responseType: 'arraybuffer' });
-    const buffer = Buffer.from(response.data, 'binary');
 
-    await sharp(buffer)
-      .resize(800) // Sesuaikan ukuran jika perlu
-      .jpeg({ quality: 80 })
-      .toFile(path.join(sourceImagesDir, `${pictureId}.jpg`));
-
-    console.log(`Gambar ${pictureId} berhasil dioptimasi.`);
-  } catch (error) {
-    console.error(`Gagal mengoptimasi gambar ${pictureId}:`, error.message);
-  }
-}
-
-// Fungsi utama untuk mengambil daftar restoran dan mengoptimasi gambarnya
-async function fetchAndOptimizeImages() {
-  try {
-    const response = await axios.get(restaurantListUrl);
-    const restaurants = response.data.restaurants;
-
-    // Loop melalui setiap restoran dan optimasi gambar
-    for (const restaurant of restaurants) {
-      await optimizeImage(restaurant.pictureId);
-    }
-  } catch (error) {
-    console.error('Gagal mengambil daftar restoran:', error.message);
-  }
-}
 
 // Jalankan proses untuk gambar lokal
 processLocalImages(sourceImagesDir, 'jpg');
 processLocalImages(webpImagesDir, 'webp');
 
-// Jalankan proses untuk gambar dari API
-fetchAndOptimizeImages();
+
