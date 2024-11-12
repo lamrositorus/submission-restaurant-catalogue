@@ -1,6 +1,3 @@
-body {
-    display: flex
-}
 .card,
 footer {
     background-image: linear-gradient(163deg, #00ff75 0, #3700ff 100%)
@@ -18,7 +15,9 @@ body {
     color: #fff;
     background-color: #fff;
     min-height: 100vh;
-    flex-direction: column
+    flex-direction: column;
+    display: flex;
+    
 }
 #hero-img,
 .content h2 {
@@ -83,11 +82,12 @@ footer p {
     -o-border-radius: 10px
 }
 .app-bar {
-    padding: 8px 16px;
+    padding: 8px 10px;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 10px;
+    /* gap: 10px; */
     position: sticky;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Menambahkan transisi untuk latar belakang dan bayangan */
     top: 0;
     z-index: 99;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / .2)
@@ -127,13 +127,20 @@ footer p {
     -ms-transition: .5s ease-in-out;
     -o-transition: .5s ease-in-out
 }
+
 .app-bar .app-bar__navigation.open {
     left: 0
+}
+.app-bar .app-bar__navigation ul  {
+    width: 100%;
+    height: 100%;
 }
 .app-bar .app-bar__navigation ul li {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    width: 30%;
+    height: 100%;
 }
 .app-bar .app-bar__navigation ul li a {
     display: inline-block;
@@ -152,7 +159,7 @@ footer p {
     color: #a80c0c;
     border-radius: 5px;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1rem;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
