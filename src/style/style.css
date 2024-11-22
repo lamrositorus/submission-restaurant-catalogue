@@ -9,6 +9,15 @@ footer {
     font-style: normal;
     font-display: swap
 }
+/* Untuk Firefox */
+html {
+    scrollbar-width: none; /* Sembunyikan scrollbar */
+  }
+  
+  /* Untuk Internet Explorer dan Edge */
+  html {
+    -ms-overflow-style: none; /* Sembunyikan scrollbar */
+  }
 body {
     flex-direction: column;
     font-family: Quicksand, sans-serif;
